@@ -495,11 +495,20 @@ namespace ViridiX.Linguist.FileSystem
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="output"></param>
-        public void ReadFile(string fileName, Stream output)
+        public bool TryReadFile(string fileName, Stream output)
         {
-            _xbox.CommandSession.SendCommandStrict("getfile name=\"{0}\"", fileName);
-            long length = _xbox.CommandSession.Reader.ReadUInt32();
-            _xbox.CommandSession.Stream.CopyTo(output, length);
+            try
+            {
+                _xbox.CommandSession.SendCommandStrict("getfile name=\"{0}\"", fileName);
+                long length = _xbox.CommandSession.Reader.ReadUInt32();
+                _xbox.CommandSession.Stream.CopyTo(output, length);
+                return true;
+            }
+            catch(Exception e)
+            {
+                _logger.Log(LogLevel.Error, e, "Unable to read file: {msg}", e.Message);
+                return false;
+            }
         }
 
         /// <summary>
@@ -511,7 +520,7 @@ namespace ViridiX.Linguist.FileSystem
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                ReadFile(fileName, ms);
+                TryReadFile(fileName, ms);
                 return ms.ToArray();
             }
         }
@@ -523,9 +532,16 @@ namespace ViridiX.Linguist.FileSystem
         /// <param name="localFileName"></param>
         public void DownloadFile(string fileName, string localFileName)
         {
-            using (FileStream fs = new FileStream(localFileName, FileMode.Open, FileAccess.Read, FileShare.Read))
+            bool success = false;
+
+            using (FileStream fs = new FileStream(localFileName, FileMode.CreateNew, FileAccess.Write, FileShare.Read))
             {
-                ReadFile(fileName, fs);
+                success = TryReadFile(fileName, fs);
+            }
+
+            if(!success)
+            {
+                File.Delete(localFileName);
             }
         }
 

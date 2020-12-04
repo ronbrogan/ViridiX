@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViridiX.Mason", "ViridiX.Mason\ViridiX.Mason.csproj", "{CD0236F3-7AF3-44CE-A86A-34DA28E48207}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViridiX.Explorer", "ViridiX.Explorer\ViridiX.Explorer.csproj", "{B04537F3-FA44-4370-9381-203CD8E6D54D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViridiX.Ventriloquist", "ViridiX.Ventriloquist\ViridiX.Ventriloquist.csproj", "{492B454D-0B78-4B8D-BB65-A4A9B5E14624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiskDumper", "DiskDumper\DiskDumper.csproj", "{7FCD77C4-219C-48C9-8C3C-47BD48657A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +47,15 @@ Global
 		{492B454D-0B78-4B8D-BB65-A4A9B5E14624}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492B454D-0B78-4B8D-BB65-A4A9B5E14624}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492B454D-0B78-4B8D-BB65-A4A9B5E14624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FCD77C4-219C-48C9-8C3C-47BD48657A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCD77C4-219C-48C9-8C3C-47BD48657A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCD77C4-219C-48C9-8C3C-47BD48657A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCD77C4-219C-48C9-8C3C-47BD48657A1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44FECDDA-A982-4D3C-AF8F-683D4332AD0B}
 	EndGlobalSection
 EndGlobal
